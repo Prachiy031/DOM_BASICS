@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="myInput">Enter your name : </label>
+    <input type="text" id="myInput">
+    <button id="submitButton">Submit</button>
+     
+    <form>
+    <h3>This is working of event objects</h3>
+    <label for="user">Enter valid username : </label>
+    <input type="text" id="user">
+    <br>
+    <br>
+    <label for="pass">Enter valid password : </label>
+    <input type="password" id="pass">
+    <br>
+    <br>
+    <button type="submit" id="Submit">Submit</button>
+    </form>
+    
+    
+</body>
+<script>
+    //use form inputs for capturing and handling events 
+    const myInput = document.getElementById('myInput');
+    const submitButton = document.getElementById('submitButton');
+    
+    myInput.addEventListener('mouseover',function(event){ //on event mouseover it will turn light blue
+        myInput.style.backgroundColor = "lightblue";
+    });
+    myInput.addEventListener('mouseout',function(event){
+        myInput.style.backgroundColor = "white";  //on event mouseout it will turn white again
+    });
+    
+
+submitButton.addEventListener('click', function() {
+  const name = myInput.value;
+  alert(`Hello, ${name}!`);   //it will take value from input
+});
+
+submitButton.addEventListener('click',function(event){
+    event.preventDefault();   //it will prevent default behavior of button
+    console.log("Clicked");  //this will be visible in console after clicking submit button
+    submitButton.textContent = "Clicked!";  //text content will be changed on button as clicked
+});
+
+
+
+//event objects 
+const submitBtn = document.getElementById("Submit");
+
+submitBtn.addEventListener('click',function(event){
+   //prevent from any dafaukt form submission
+   event.preventDefault();
+   
+   //validate form fields here
+   const username = document.getElementById("user").value;
+   const password = document.getElementById("pass").value;
+
+   //this will be displayed on console
+   console.log("UserName : "+username);
+   console.log("Password : "+password);
+});
+</script>
+</html>
+
+
+
